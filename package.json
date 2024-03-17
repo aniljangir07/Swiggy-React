@@ -1,0 +1,29 @@
+{
+  "name": "swiggy-react",
+  "version": "1.0.0",
+  "description": "Namste React",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aniljangir07/Swiggy-React.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aniljangir07/Swiggy-React/issues"
+  },
+  "homepage": "https://github.com/aniljangir07/Swiggy-React#readme",
+  "devDependencies": {
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "parcel": "^2.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1"
+  }
+}
