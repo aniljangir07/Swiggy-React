@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
       let [restaurantList, setRestaurantList] = useState([]);
+      let [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
 
       useEffect(()=>{
             fetchData();
@@ -16,15 +17,27 @@ const Body = () => {
             data = await data.json();
             let listData = data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             setRestaurantList(listData);
+            setFilteredRestaurantList(listData);
       };
+
+      const [searchText,setSearchText] = useState('');
+      
 
       //Conditional renderin
       return (restaurantList.length==0) ? <Shimmer/> : (
             <div className="body">
                   <div className="search-div">
                         <div className="search">
-                              <input type="text" placeholder="Search..." />
-                              <FaSearch className="search-icon" />
+                              <input type="text" placeholder="Search..." onChange={(e)=>{setSearchText(e.target.value)}} value={searchText}  />
+                              <button className="search-btn" 
+                                    onClick={()=>{
+                                          let filteredRestaurants = restaurantList.filter((items)=>{
+                                                return items.info.name.toLowerCase().includes(searchText.toLowerCase())
+                                          });
+                                          setFilteredRestaurantList(filteredRestaurants)
+                                    }}>
+                                    <FaSearch className="search-icon" />
+                              </button>
                         </div >
                         <div className="filter-btn">
                               <button className="filter-button" onClick={(e) => {
@@ -35,7 +48,7 @@ const Body = () => {
                   </div>
                   <div className="restaurant-container">
                         {
-                              restaurantList.map((resDetails, index) => {
+                              filteredRestaurantList.map((resDetails, index) => {
                                     return <RestaurantCard resData={resDetails} key={index} />
                               })
                         }

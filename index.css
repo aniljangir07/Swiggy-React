@@ -282,3 +282,9 @@
       font-size: large;
       color: whitesmoke;
 }
+
+.search-btn{
+      background: transparent;
+      border: none;
+      cursor: pointer;
+}

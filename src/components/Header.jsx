@@ -1,4 +1,9 @@
+import { useState } from "react";
+
+
 const Header = () => {
+      const [loginBtn, setLoginBtn] = useState('Login');
+
       return (
             <header className="header">
                   <div >
@@ -13,8 +18,8 @@ const Header = () => {
                                     <li><a href="#">Cart</a></li>
                                     <li>
                                           <a href="#" type="btn">
-                                                <button className="login-logout-btn">
-                                                      <span class="icon">Login</span>
+                                                <button className="login-logout-btn" onClick={()=>{(loginBtn==='Login') ? setLoginBtn('Log out') : setLoginBtn('Login')}} value={loginBtn}> 
+                                                      {loginBtn}
                                                 </button>
                                           </a>
                                     </li>
