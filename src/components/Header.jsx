@@ -11,6 +11,13 @@ const Header = () => {
                                     <li><a href="#">About us</a></li>
                                     <li><a href="#">Contact</a></li>
                                     <li><a href="#">Cart</a></li>
+                                    <li>
+                                          <a href="#" type="btn">
+                                                <button className="login-logout-btn">
+                                                      <span class="icon">Login</span>
+                                                </button>
+                                          </a>
+                                    </li>
                               </ul>
                         </nav>
                   </div>
